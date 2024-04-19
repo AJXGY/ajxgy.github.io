@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>My Blog</title>
+  
+  
+  <link href="https://github.com/AJXGY/AJXGY.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://github.com/AJXGY/AJXGY.github.io/"/>
+  <updated>2023-02-06T08:24:32.541Z</updated>
+  <id>https://github.com/AJXGY/AJXGY.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://github.com/AJXGY/AJXGY.github.io/2023/02061.html"/>
+    <id>https://github.com/AJXGY/AJXGY.github.io/2023/02061.html</id>
+    <published>2023-02-06T08:24:31.793Z</published>
+    <updated>2023-02-06T08:24:32.541Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;美赛A题题型及需要掌握什么算法？&quot;&gt;&lt;a href=&quot;#美赛A题题型及需要掌握什么算法？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>my diary</title>
+    <link href="https://github.com/AJXGY/AJXGY.github.io/2023/020657072.html"/>
+    <id>https://github.com/AJXGY/AJXGY.github.io/2023/020657072.html</id>
+    <published>2023-02-06T08:23:26.000Z</published>
+    <updated>2023-02-06T08:23:39.926Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>储李节的博客</title>
+    <link href="https://github.com/AJXGY/AJXGY.github.io/2023/020532668.html"/>
+    <id>https://github.com/AJXGY/AJXGY.github.io/2023/020532668.html</id>
+    <published>2023-02-05T13:23:55.070Z</published>
+    <updated>2023-02-06T07:00:54.153Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
