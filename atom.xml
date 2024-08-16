@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>My Blog</title>
   
-  
+  <subtitle>但行好事 莫问前程</subtitle>
   <link href="https://ajxgy.github.io/atom.xml" rel="self"/>
   
   <link href="https://ajxgy.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://ajxgy.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Cc</name>
     
   </author>
   
