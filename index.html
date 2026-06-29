@@ -3,603 +3,1011 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>储李节 | AJXGY Blog</title>
-  <meta name="description" content="储李节的个人主页与技术博客。中国科学技术大学计算机技术硕士，关注异构算力性能建模、大模型训练推理性能预测、恶意软件分类与智能预测。" />
-  <meta name="keywords" content="储李节, AJXGY, 中国科学技术大学, 个人主页, 技术博客, 异构算力, 性能建模, 恶意软件分类, 沼气预测" />
+  <title>储李节 | Chu Lijie</title>
+  <meta name="description" content="储李节的个人主页与技术博客。中国科学技术大学计算机技术硕士，研究方向包括异构算力性能建模、大模型训练与推理性能预测。" />
+  <meta name="keywords" content="储李节, AJXGY, 中国科学技术大学, 异构算力, 性能建模, AI Systems, 技术博客" />
   <meta name="author" content="储李节" />
-  <meta name="theme-color" content="#f7f3ee" />
+  <meta name="theme-color" content="#f4f5f2" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="储李节 | AJXGY Blog" />
-  <meta property="og:description" content="记录科研、工程、竞赛与生活：异构算力、AI 系统、网络安全、智能预测与长期学习。" />
+  <meta property="og:title" content="储李节 | Chu Lijie" />
+  <meta property="og:description" content="Research, engineering and notes on heterogeneous computing, AI systems and performance modeling." />
   <meta property="og:url" content="https://ajxgy.github.io/" />
-  <meta property="og:image" content="https://ajxgy.github.io/medias/cover.jpg" />
+  <meta property="og:image" content="https://ajxgy.github.io/medias/avatar.jpg" />
   <link rel="canonical" href="https://ajxgy.github.io/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <style>
     :root {
-      --bg: #f7f3ee;
-      --bg-soft: #fbf8f4;
-      --card: rgba(255, 255, 255, 0.82);
-      --card-strong: rgba(255, 255, 255, 0.94);
-      --text: #28241f;
-      --muted: #6c655d;
-      --line: rgba(70, 55, 40, 0.12);
-      --accent: #6f8f72;
-      --accent-deep: #3f6f5a;
-      --accent-soft: rgba(111, 143, 114, 0.12);
-      --gold: #a98245;
-      --ink: #20342d;
-      --shadow: 0 20px 48px rgba(61, 48, 34, 0.12);
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --container: 1180px;
+      --paper: #f4f5f2;
+      --surface: #ffffff;
+      --ink: #171b1a;
+      --muted: #626966;
+      --line: #d9dedb;
+      --green: #27624f;
+      --green-soft: #dbe9e2;
+      --blue: #3657a6;
+      --blue-soft: #e2e7f5;
+      --coral: #c85d43;
+      --yellow: #e7b84b;
+      --max: 1180px;
+      --header: 70px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header) + 24px);
+    }
 
     body {
       margin: 0;
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "PingFang SC",
-        "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-      background:
-        linear-gradient(rgba(247, 243, 238, 0.86), rgba(247, 243, 238, 0.94)),
-        url("/medias/cover.jpg") center top / cover fixed no-repeat;
-      line-height: 1.72;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "SF Pro Text", "Inter", "PingFang SC", "Hiragino Sans GB",
+        "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
 
     .container {
-      width: min(var(--container), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(70, 55, 40, 0.08);
-      background: rgba(247, 243, 238, 0.78);
-      backdrop-filter: blur(16px);
+      z-index: 30;
+      height: var(--header);
+      border-bottom: 1px solid rgba(23, 27, 26, 0.1);
+      background: rgba(244, 245, 242, 0.94);
+      backdrop-filter: blur(14px);
     }
 
     .topbar-inner {
-      min-height: 74px;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      min-width: 0;
     }
 
-    .logo-mark {
-      width: 44px;
-      height: 44px;
+    .brand-mark {
+      width: 38px;
+      height: 38px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
-      color: #fffaf4;
-      background: linear-gradient(135deg, var(--accent-deep), #8aa46c);
-      box-shadow: 0 12px 24px rgba(63, 111, 90, 0.2);
-      font-weight: 900;
-      letter-spacing: 0;
+      flex: none;
+      color: #fff;
+      background: var(--ink);
+      border-radius: 4px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.75rem;
+      font-weight: 800;
     }
 
-    .brand-title {
-      font-weight: 850;
-      font-size: 1.05rem;
-      line-height: 1.1;
+    .brand-copy {
+      display: grid;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-weight: 780;
     }
 
     .brand-sub {
       margin-top: 3px;
       color: var(--muted);
-      font-size: 0.84rem;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.7rem;
     }
 
     .nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      align-items: center;
+      gap: 22px;
+      color: #4f5653;
+      font-size: 0.88rem;
       font-weight: 650;
     }
 
-    .nav a { transition: color 0.18s ease; }
-    .nav a:hover { color: var(--accent-deep); }
+    .nav a {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      height: 2px;
+      background: var(--coral);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 180ms ease;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: relative;
+    }
+
+    .mobile-menu summary {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--surface);
+      cursor: pointer;
+      list-style: none;
+      font-size: 1.2rem;
+    }
+
+    .mobile-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-menu-nav {
+      position: absolute;
+      top: 46px;
+      right: 0;
+      width: 190px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      box-shadow: 0 18px 40px rgba(23, 27, 26, 0.14);
+    }
+
+    .mobile-menu-nav a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 3px;
+      font-weight: 650;
+    }
+
+    .mobile-menu-nav a:hover {
+      background: var(--paper);
+    }
 
     .hero {
-      padding: 54px 0 24px;
+      padding: 62px 0 54px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 348px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
+      grid-template-columns: minmax(0, 1fr) 400px;
+      gap: 72px;
+      align-items: center;
     }
 
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      background: var(--card);
-      box-shadow: var(--shadow);
+    .hero-kicker,
+    .section-index,
+    .label {
+      color: var(--green);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.74rem;
+      font-weight: 760;
+      letter-spacing: 0;
+      text-transform: uppercase;
     }
 
-    .profile-card {
-      position: sticky;
-      top: 98px;
-      padding: 28px 24px 24px;
-    }
-
-    .avatar-wrap {
-      width: 178px;
-      height: 178px;
-      margin: 0 auto 20px;
-      padding: 7px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(111, 143, 114, 0.36), rgba(169, 130, 69, 0.32));
-    }
-
-    .avatar {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
-      border: 6px solid rgba(255, 255, 255, 0.92);
-      background: #efe6d8;
-    }
-
-    .name {
-      margin: 0;
-      text-align: center;
-      font-size: 1.78rem;
-      line-height: 1.15;
-    }
-
-    .role {
-      margin-top: 10px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .motto {
-      margin: 20px 0 0;
-      padding: 15px;
-      border-radius: 16px;
-      color: #4c463f;
-      background: rgba(255, 255, 255, 0.66);
-      border: 1px solid rgba(70, 55, 40, 0.08);
-      font-weight: 650;
-      text-align: center;
-    }
-
-    .meta-stack {
-      margin-top: 20px;
-      display: grid;
+    .hero-kicker {
+      display: flex;
+      align-items: center;
       gap: 10px;
     }
 
-    .meta-item {
-      padding: 13px 14px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.68);
-      border: 1px solid rgba(70, 55, 40, 0.08);
+    .mobile-avatar {
+      display: none;
     }
 
-    .meta-label {
-      color: var(--muted);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      font-weight: 750;
-    }
-
-    .meta-value {
-      margin-top: 3px;
-      font-weight: 750;
-      overflow-wrap: anywhere;
-    }
-
-    .hero-main {
-      padding: clamp(28px, 5vw, 46px);
-      min-height: 540px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      width: fit-content;
-      padding: 8px 13px;
-      border-radius: 999px;
-      color: var(--accent-deep);
-      background: var(--accent-soft);
-      font-weight: 800;
-      font-size: 0.9rem;
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      flex: none;
+      border-radius: 50%;
+      background: var(--coral);
+      box-shadow: 0 0 0 5px rgba(200, 93, 67, 0.12);
     }
 
     h1 {
-      margin: 18px 0 0;
-      max-width: 860px;
-      font-size: clamp(2.3rem, 5vw, 4.9rem);
+      margin: 22px 0 0;
+      font-size: 4rem;
       line-height: 1.02;
       letter-spacing: 0;
     }
 
-    .lead {
-      margin: 20px 0 0;
-      max-width: 780px;
-      color: #4f4942;
-      font-size: clamp(1.03rem, 1.8vw, 1.18rem);
+    .english-name {
+      display: block;
+      margin-top: 11px;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.9rem;
+      font-weight: 400;
     }
 
-    .actions {
+    .hero-role {
+      margin-top: 28px;
+      max-width: 700px;
+      font-size: 1.16rem;
+      font-weight: 680;
+    }
+
+    .hero-intro {
+      max-width: 720px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px 26px;
       margin-top: 28px;
     }
 
-    .btn {
+    .command-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 800;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--ink);
+      font-size: 0.92rem;
+      font-weight: 740;
+      transition: color 160ms ease, border-color 160ms ease;
     }
 
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-primary {
-      color: #fffaf4;
-      background: var(--accent-deep);
-      box-shadow: 0 14px 28px rgba(63, 111, 90, 0.24);
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.72);
-      border-color: rgba(70, 55, 40, 0.1);
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .tag {
-      padding: 8px 12px;
-      border-radius: 999px;
-      color: var(--accent-deep);
-      background: rgba(111, 143, 114, 0.12);
-      border: 1px solid rgba(111, 143, 114, 0.16);
-      font-weight: 700;
+    .command-link::after {
+      content: "↗";
       font-size: 0.88rem;
     }
 
-    .section {
-      padding: 36px 0;
+    .command-link:hover {
+      color: var(--coral);
+      border-color: var(--coral);
     }
 
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 16px;
+    .command-link.internal::after {
+      content: "↓";
     }
 
-    .section-title {
-      margin: 0;
-      font-size: clamp(1.65rem, 3vw, 2.35rem);
-      line-height: 1.15;
-    }
-
-    .section-note {
-      color: var(--muted);
-      font-weight: 650;
-    }
-
-    .grid-3 {
+    .hero-stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .card {
-      padding: 22px;
-      border-radius: var(--radius-lg);
-      background: var(--card-strong);
-      border: 1px solid var(--line);
-      transition: transform 0.18s ease, border-color 0.18s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(63, 111, 90, 0.26);
-    }
-
-    .card h3 {
-      margin: 0;
-      font-size: 1.08rem;
-      line-height: 1.34;
-    }
-
-    .card p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .kicker {
-      margin-bottom: 10px;
-      color: var(--gold);
-      font-size: 0.82rem;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .metric {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.64);
-      border: 1px solid rgba(70, 55, 40, 0.08);
-    }
-
-    .metric-value {
-      color: var(--accent-deep);
-      font-size: 1.46rem;
-      line-height: 1.1;
-      font-weight: 900;
-    }
-
-    .metric-label {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 0.86rem;
-      font-weight: 650;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 14px;
-    }
-
-    .timeline-item {
-      padding: 20px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid var(--line);
-    }
-
-    .timeline-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .timeline-title {
-      font-weight: 850;
-      color: var(--ink);
-    }
-
-    .timeline-time {
-      color: var(--gold);
-      font-weight: 800;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .paper-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .paper {
-      padding: 22px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--line);
-    }
-
-    .paper-top {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .paper-title {
-      font-weight: 850;
-      line-height: 1.42;
-    }
-
-    .status {
-      flex: none;
-      display: inline-flex;
-      padding: 5px 10px;
-      border-radius: 999px;
-      color: var(--accent-deep);
-      background: var(--accent-soft);
-      font-size: 0.78rem;
-      font-weight: 850;
-    }
-
-    .paper-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .text-link {
-      color: var(--accent-deep);
-      font-weight: 850;
-    }
-
-    .honor-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 42px;
       border-top: 1px solid var(--line);
     }
 
-    .honor-item {
-      display: flex;
-      align-items: baseline;
-      justify-content: flex-start;
-      gap: 8px;
+    .stat {
       min-width: 0;
-      padding: 17px 4px;
+      padding: 17px 18px 0 0;
+    }
+
+    .stat + .stat {
+      padding-left: 18px;
+      border-left: 1px solid var(--line);
+    }
+
+    .stat-value {
+      font-size: 1.45rem;
+      font-weight: 820;
+      line-height: 1;
+    }
+
+    .stat-label {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.4;
+    }
+
+    .portrait-block {
+      position: relative;
+      padding: 0 20px 20px 0;
+    }
+
+    .portrait-frame {
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border: 1px solid rgba(23, 27, 26, 0.16);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    .portrait-block::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      background: var(--yellow);
+    }
+
+    .portrait-caption {
+      position: absolute;
+      z-index: 3;
+      right: 0;
+      bottom: 36px;
+      padding: 9px 12px;
+      color: #fff;
+      border-radius: 3px 0 0 3px;
+      background: var(--blue);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .section-band {
+      padding: 76px 0;
       border-bottom: 1px solid var(--line);
     }
 
-    .honor-item:nth-child(odd) {
+    .section-band.white {
+      background: var(--surface);
+    }
+
+    .section-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 68px;
+    }
+
+    .section-rail {
+      align-self: start;
+      position: sticky;
+      top: calc(var(--header) + 24px);
+    }
+
+    .section-index {
+      color: var(--coral);
+    }
+
+    .section-title {
+      margin: 10px 0 0;
+      font-size: 1.55rem;
+      line-height: 1.18;
+    }
+
+    .section-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    .research-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .research-row {
+      display: grid;
+      grid-template-columns: 64px minmax(220px, 0.68fr) minmax(0, 1fr);
+      gap: 26px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .research-number {
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-style: italic;
+    }
+
+    .research-row h3,
+    .project h3,
+    .note-item h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+
+    .research-row p,
+    .project p,
+    .note-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      position: relative;
+      border-top: 1px solid var(--ink);
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 126px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 52px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-time {
+      color: var(--blue);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.08rem;
+    }
+
+    .timeline-item p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .publication-list {
+      counter-reset: publications;
+      border-top: 1px solid var(--ink);
+    }
+
+    .publication {
+      counter-increment: publications;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 154px;
+      gap: 24px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .publication::before {
+      content: "0" counter(publications);
+      color: var(--coral);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+
+    .publication-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: 1.15rem;
+      line-height: 1.5;
+    }
+
+    .publication-meta {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .publication-summary {
+      margin: 10px 0 0;
+      color: #464d4a;
+      font-size: 0.9rem;
+    }
+
+    .publication-side {
+      text-align: right;
+    }
+
+    .publication-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      color: var(--green);
+      border: 1px solid rgba(39, 98, 79, 0.32);
+      border-radius: 3px;
+      background: var(--green-soft);
+      font-size: 0.7rem;
+      font-weight: 760;
+      line-height: 1.4;
+    }
+
+    .publication-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: 14px;
+      margin-top: 14px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.74rem;
+      font-weight: 750;
+    }
+
+    .publication-links a {
+      border-bottom: 1px solid currentColor;
+    }
+
+    .publication-links a:hover {
+      color: var(--coral);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 38px 44px;
+    }
+
+    .project {
+      position: relative;
+      padding: 23px 0 0 46px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .project::before {
+      content: attr(data-number);
+      position: absolute;
+      top: 23px;
+      left: 0;
+      color: var(--coral);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .project .label {
+      margin-bottom: 9px;
+      color: var(--blue);
+    }
+
+    .project p {
+      margin-top: 10px;
+    }
+
+    .honor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ink);
+    }
+
+    .honor {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      min-width: 0;
+      padding: 17px 4px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .honor:nth-child(odd) {
       padding-right: 26px;
       border-right: 1px solid var(--line);
     }
 
-    .honor-item:nth-child(even) {
+    .honor:nth-child(even) {
       padding-left: 26px;
     }
 
-    .honor-name {
-      color: var(--text);
-      font-weight: 760;
-      line-height: 1.55;
+    .honor strong {
+      font-weight: 710;
     }
 
-    .role-badge {
+    .honor-role {
       flex: none;
-      color: var(--accent-deep);
-      font-size: 0.8rem;
-      font-weight: 850;
+      color: var(--coral);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.7rem;
+      font-weight: 760;
+    }
+
+    .note-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .note-item {
+      display: grid;
+      grid-template-columns: 112px minmax(180px, 0.6fr) minmax(0, 1fr) 24px;
+      gap: 24px;
+      align-items: center;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding 160ms ease, color 160ms ease;
+    }
+
+    .note-item:hover {
+      padding-right: 8px;
+      padding-left: 8px;
+      color: var(--blue);
+    }
+
+    .note-type {
+      color: var(--green);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.72rem;
+      font-weight: 760;
+    }
+
+    .note-arrow {
+      font-size: 1.1rem;
+    }
+
+    .contact-band {
+      padding: 70px 0;
+      color: #f6f7f4;
+      background: var(--ink);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+      gap: 72px;
+      align-items: end;
+    }
+
+    .contact-band .section-index {
+      color: #f0b6a8;
+    }
+
+    .contact-title {
+      margin: 12px 0 0;
+      max-width: 760px;
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+
+    .contact-copy {
+      margin: 12px 0 0;
+      color: #b9c1bd;
+      font-size: 0.92rem;
+    }
+
+    .contact-links {
+      display: grid;
+      border-top: 1px solid rgba(255, 255, 255, 0.42);
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.88rem;
+    }
+
+    .contact-link span:first-child {
+      color: #9ea8a3;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+    }
+
+    .contact-link:hover {
+      color: #f0b6a8;
     }
 
     .footer {
-      margin-top: 40px;
-      padding: 30px 0;
-      color: var(--muted);
-      border-top: 1px solid rgba(70, 55, 40, 0.1);
-      background: rgba(247, 243, 238, 0.68);
+      padding: 24px 0;
+      color: #69706d;
+      background: #0d100f;
+      font-size: 0.76rem;
     }
 
     .footer-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     .footer-links {
       display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-weight: 650;
+      gap: 18px;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(54, 87, 166, 0.36);
+      outline-offset: 4px;
     }
 
     @media (max-width: 980px) {
-      .hero-grid,
-      .grid-2 {
-        grid-template-columns: 1fr;
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 42px;
       }
 
-      .profile-card {
-        position: static;
+      h1 {
+        font-size: 3.3rem;
       }
 
-      .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
+      .section-layout {
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: 40px;
       }
 
-      .metric-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .research-row {
+        grid-template-columns: 46px minmax(180px, 0.75fr) minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .publication {
+        grid-template-columns: 44px minmax(0, 1fr);
+      }
+
+      .publication-side {
+        grid-column: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+      }
+
+      .publication-links {
+        margin-top: 0;
       }
     }
 
-    @media (max-width: 660px) {
-      .topbar-inner {
-        min-height: auto;
-        padding: 16px 0;
-        align-items: flex-start;
+    @media (max-width: 760px) {
+      :root {
+        --header: 64px;
+      }
+
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .brand-sub {
+        display: none;
       }
 
       .nav {
         display: none;
       }
 
+      .mobile-menu {
+        display: block;
+      }
+
       .hero {
-        padding-top: 28px;
+        padding: 36px 0 42px;
       }
 
-      .hero-main,
-      .profile-card {
-        border-radius: 18px;
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
       }
 
-      .actions {
-        flex-direction: column;
+      .hero-copy {
+        position: relative;
       }
 
-      .btn {
-        width: 100%;
+      .portrait-block {
+        display: none;
       }
 
-      .section-head,
-      .paper-top {
-        align-items: start;
-        flex-direction: column;
+      .mobile-avatar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 104px;
+        height: 104px;
+        display: block;
+        object-fit: cover;
+        object-position: center 18%;
+        border: 1px solid var(--ink);
+        border-radius: 6px;
+        box-shadow: 8px 8px 0 var(--yellow);
       }
 
-      .grid-3,
-      .metric-grid {
+      .hero-kicker,
+      h1 {
+        max-width: calc(100% - 124px);
+      }
+
+      h1 {
+        margin-top: 16px;
+        font-size: 2.8rem;
+      }
+
+      .english-name {
+        font-size: 1.55rem;
+      }
+
+      .hero-role {
+        margin-top: 24px;
+        font-size: 1.02rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-top: 28px;
+      }
+
+      .stat {
+        padding: 14px 8px 0;
+      }
+
+      .stat + .stat {
+        padding-left: 8px;
+      }
+
+      .stat:first-child {
+        padding-left: 0;
+      }
+
+      .stat-value {
+        font-size: 1.2rem;
+      }
+
+      .stat-label {
+        font-size: 0.64rem;
+      }
+
+      .section-band {
+        padding: 54px 0;
+      }
+
+      .section-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .section-rail {
+        position: static;
+      }
+
+      .section-note {
+        max-width: 360px;
+      }
+
+      .research-row {
+        grid-template-columns: 38px minmax(0, 1fr);
+      }
+
+      .research-row p {
+        grid-column: 2;
+      }
+
+      .timeline::before {
+        left: 88px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 68px minmax(0, 1fr);
+        gap: 36px;
+      }
+
+      .project-grid,
+      .honor-grid {
         grid-template-columns: 1fr;
       }
 
-      .honor-list {
-        grid-template-columns: 1fr;
-      }
-
-      .honor-item:nth-child(odd),
-      .honor-item:nth-child(even) {
+      .honor:nth-child(odd),
+      .honor:nth-child(even) {
         padding-right: 4px;
         padding-left: 4px;
         border-right: 0;
+      }
+
+      .note-item {
+        grid-template-columns: 86px minmax(0, 1fr) 22px;
+        gap: 14px;
+      }
+
+      .note-item p {
+        display: none;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.35rem;
+      }
+
+      .hero-links {
+        gap: 8px 18px;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .publication::before,
+      .publication-side {
+        grid-column: 1;
+      }
+
+      .publication-side {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .note-item {
+        grid-template-columns: 1fr 22px;
+      }
+
+      .note-type {
+        grid-column: 1 / -1;
+      }
+
+      .contact-title {
+        font-size: 1.65rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -607,337 +1015,336 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="/" aria-label="AJXGY Blog home">
-        <span class="logo-mark">CLJ</span>
-        <span>
-          <span class="brand-title">储李节</span>
-          <span class="brand-sub">AJXGY Blog · Research & Engineering Notes</span>
+      <a class="brand" href="/" aria-label="储李节个人主页">
+        <span class="brand-mark">AJ</span>
+        <span class="brand-copy">
+          <span class="brand-name">储李节</span>
+          <span class="brand-sub">AJXGY / RESEARCH & NOTES</span>
         </span>
       </a>
+
       <nav class="nav" aria-label="主导航">
-        <a href="#research">科研</a>
+        <a href="#research">研究</a>
         <a href="#publications">论文</a>
         <a href="#projects">项目</a>
         <a href="#honors">荣誉</a>
-        <a href="/archives/">博客</a>
+        <a href="#notes">笔记</a>
         <a href="#contact">联系</a>
       </nav>
+
+      <details class="mobile-menu">
+        <summary aria-label="打开导航" title="导航">☰</summary>
+        <nav class="mobile-menu-nav" aria-label="移动端导航">
+          <a href="#research">研究</a>
+          <a href="#publications">论文</a>
+          <a href="#projects">项目</a>
+          <a href="#honors">荣誉</a>
+          <a href="#notes">笔记</a>
+          <a href="#contact">联系</a>
+        </nav>
+      </details>
     </div>
   </header>
 
-  <main class="container">
+  <main>
     <section class="hero">
-      <div class="hero-grid">
-        <aside class="panel profile-card">
-          <div class="avatar-wrap">
-            <img class="avatar" src="/medias/avatar.jpg" alt="储李节头像" />
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <img class="mobile-avatar" src="/medias/avatar.jpg" alt="" aria-hidden="true" />
+          <div class="hero-kicker">
+            <span class="status-dot" aria-hidden="true"></span>
+            M.S. Student · USTC · Computer Technology
           </div>
-          <h2 class="name">储李节</h2>
-          <div class="role">M.S. Student in Computer Technology, USTC</div>
-          <div class="motto">但行好事，莫问前程。做好当下，一切都在路上。</div>
-          <div class="meta-stack">
-            <div class="meta-item">
-              <div class="meta-label">Current</div>
-              <div class="meta-value">中国科学技术大学 · 计算机技术硕士</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">Background</div>
-              <div class="meta-value">东北农业大学 · 计算机科学与技术 · 1/201</div>
-            </div>
-            <a class="meta-item" href="mailto:cljjjkk@mail.ustc.edu.cn">
-              <div class="meta-label">Email</div>
-              <div class="meta-value">cljjjkk@mail.ustc.edu.cn</div>
-            </a>
-            <a class="meta-item" href="https://github.com/AJXGY" target="_blank" rel="noopener noreferrer">
-              <div class="meta-label">GitHub</div>
-              <div class="meta-value">@AJXGY</div>
-            </a>
-            <div class="meta-item">
-              <div class="meta-label">QQ</div>
-              <div class="meta-value">1746420341</div>
-            </div>
-          </div>
-        </aside>
 
-        <div class="panel hero-main">
-          <div class="eyebrow">个人主页 · 技术博客 · 科研记录</div>
-          <h1>做能落地的系统研究，也把过程认真记录下来。</h1>
-          <p class="lead">
-            我目前在中国科学技术大学攻读计算机技术硕士，关注异构算力平台性能建模、
-            大模型训练/推理时间预测、任务 DAG 表达与系统级可视化报告生成。
+          <h1>
+            储李节
+            <span class="english-name">Chu Lijie</span>
+          </h1>
+
+          <div class="hero-role">
+            异构算力性能建模 · 大模型训练与推理性能预测 · AI Systems
+          </div>
+          <p class="hero-intro">
+            目前在中国科学技术大学攻读计算机技术硕士。这里整理正在进行的研究、
+            公开成果、工程实践与阶段性笔记。
           </p>
-          <p class="lead">
-            本科阶段主要围绕深度学习、网络安全、时间序列预测和智能农业展开实践，
-            发表 SCI 论文 2 篇，参与发明专利与软件著作权，持续用工程实现来验证研究想法。
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#publications">View Publications</a>
-            <a class="btn btn-secondary" href="https://github.com/AJXGY" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a class="btn btn-secondary" href="/archives/">Read Blog</a>
+
+          <div class="hero-links">
+            <a class="command-link internal" href="#publications">查看成果</a>
+            <a class="command-link" href="https://github.com/AJXGY" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="command-link" href="mailto:cljjjkk@mail.ustc.edu.cn">Email</a>
+            <a class="command-link" href="/archives/">博客归档</a>
           </div>
-          <div class="tag-row">
-            <span class="tag">Heterogeneous Computing</span>
-            <span class="tag">AI Systems</span>
-            <span class="tag">Malware Classification</span>
-            <span class="tag">Time-Series Forecasting</span>
-            <span class="tag">Modeling Competitions</span>
-          </div>
-          <div class="metric-grid">
-            <div class="metric">
-              <div class="metric-value">2</div>
-              <div class="metric-label">SCI papers</div>
+
+          <div class="hero-stats" aria-label="个人成果概览">
+            <div class="stat">
+              <div class="stat-value">2</div>
+              <div class="stat-label">SCI papers</div>
             </div>
-            <div class="metric">
-              <div class="metric-value">3</div>
-              <div class="metric-label">invention patents</div>
+            <div class="stat">
+              <div class="stat-value">3</div>
+              <div class="stat-label">invention patents</div>
             </div>
-            <div class="metric">
-              <div class="metric-value">7</div>
-              <div class="metric-label">software copyrights</div>
+            <div class="stat">
+              <div class="stat-value">7</div>
+              <div class="stat-label">software copyrights</div>
             </div>
-            <div class="metric">
-              <div class="metric-value">1/201</div>
-              <div class="metric-label">undergraduate rank</div>
+            <div class="stat">
+              <div class="stat-value">1/201</div>
+              <div class="stat-label">undergraduate rank</div>
             </div>
           </div>
+        </div>
+
+        <div class="portrait-block">
+          <div class="portrait-frame">
+            <img src="/medias/avatar.jpg" alt="储李节在海边的个人照片" />
+          </div>
+          <div class="portrait-caption">AJXGY / PERSONAL ARCHIVE</div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="research">
-      <div class="section-head">
-        <h2 class="section-title">Now / 最近在做</h2>
-        <a class="section-note" href="https://github.com/AJXGY" target="_blank" rel="noopener noreferrer">GitHub profile</a>
-      </div>
-      <div class="grid-3">
-        <article class="card">
-          <div class="kicker">Current Research</div>
-          <h3>异构算力的通用时空双维度建模</h3>
-          <p>面向 CPU/GPU/NPU 等异构平台，建模任务执行时间、关键路径、资源竞争和多卡并行性能，为调度与性能预测提供支撑。</p>
-        </article>
-        <article class="card">
-          <div class="kicker">AI Systems</div>
-          <h3>大模型训练与推理性能预测</h3>
-          <p>关注通信、访存、计算算子采集，训练/推理阶段耗时建模，以及 DAG 展示、瓶颈分析和可视化报告生成。</p>
-        </article>
-        <article class="card">
-          <div class="kicker">Blogging</div>
-          <h3>把科研、代码和生活留下记录</h3>
-          <p>这个站点会逐步整理论文阅读、系统实验、竞赛经验、工程踩坑和研究生活，让外人能更快理解我的工作。</p>
-        </article>
-      </div>
-    </section>
+    <section class="section-band white" id="research">
+      <div class="container section-layout">
+        <header class="section-rail">
+          <div class="section-index">01 / Research</div>
+          <h2 class="section-title">最近在做</h2>
+          <p class="section-note">从平台测量、算子建模到端到端性能预测。</p>
+        </header>
 
-    <section class="section" id="education">
-      <div class="section-head">
-        <h2 class="section-title">Education</h2>
-        <div class="section-note">学习轨迹</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-top">
-            <div class="timeline-title">中国科学技术大学 · 计算机技术 · 硕士</div>
-            <div class="timeline-time">2025.09 - 2028.06</div>
-          </div>
-          <p class="muted">主修高级数据库系统、算法设计与分析、编译工程、组合数学等；现阶段关注异构算力平台、AI 系统建模与性能预测。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-top">
-            <div class="timeline-title">东北农业大学 · 计算机科学与技术 · 本科</div>
-            <div class="timeline-time">2021.09 - 2025.06</div>
-          </div>
-          <p class="muted">绩点排名 1/201，综合成绩排名 1/201；本科期间获得国家奖学金、黑龙江省三好学生、大学生年度人物等荣誉。</p>
+        <div class="research-list">
+          <article class="research-row">
+            <div class="research-number">01</div>
+            <h3>异构算力的通用时空双维度建模</h3>
+            <p>面向 CPU、GPU、NPU 等异构平台，研究任务执行时间、关键路径、资源竞争与多卡并行性能，为调度与性能预测提供模型支撑。</p>
+          </article>
+          <article class="research-row">
+            <div class="research-number">02</div>
+            <h3>大模型训练与推理性能预测</h3>
+            <p>围绕通信、访存和计算算子进行性能采集与建模，分析训练和推理阶段耗时，定位系统瓶颈并生成可解释报告。</p>
+          </article>
+          <article class="research-row">
+            <div class="research-number">03</div>
+            <h3>任务 DAG 表达与系统级可视化</h3>
+            <p>将模型执行过程映射为可分析的任务图，展示算子依赖、资源占用和关键路径，辅助跨平台性能比较与工程决策。</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="publications">
-      <div class="section-head">
-        <h2 class="section-title">Publications & Patents</h2>
-        <div class="section-note">论文、专利与可下载材料</div>
-      </div>
-      <div class="paper-list">
-        <article class="paper">
-          <div class="paper-top">
+    <section class="section-band" id="education">
+      <div class="container section-layout">
+        <header class="section-rail">
+          <div class="section-index">02 / Education</div>
+          <h2 class="section-title">学习经历</h2>
+          <p class="section-note">计算机科学、系统研究与工程实践。</p>
+        </header>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-time">2025.09<br />— 2028.06</div>
             <div>
-              <div class="paper-title">Multi-view based network for malware classification</div>
-              <div class="muted">发表：Engineering Applications of Artificial Intelligence, 2026 · 第一作者 · SCI 一区 · IF 8.0（2024 JIF）</div>
+              <h3>中国科学技术大学 · 计算机技术 · 硕士</h3>
+              <p>主修高级数据库系统、算法设计与分析、编译工程、组合数学等；研究方向聚焦异构算力平台与 AI 系统性能建模。</p>
             </div>
-            <span class="status">SCI Q1 · First author</span>
-          </div>
-          <p class="muted">提出双层多视图恶意软件分类框架，结合 ViT、VGG 与 Bilinear Attention Network，在 Microsoft Big2015 数据集上取得 98.78% accuracy 和 98.76% F1-score。</p>
-          <div class="paper-links">
-            <a class="text-link" href="https://doi.org/10.1016/j.engappai.2026.114580" target="_blank" rel="noopener noreferrer">DOI</a>
-            <a class="text-link" href="/assets/site/papers/eaai-2026-malware-multiview-network.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          </div>
-        </article>
-
-        <article class="paper">
-          <div class="paper-top">
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">2021.09<br />— 2025.06</div>
             <div>
-              <div class="paper-title">Plant-Scale Biogas Production Based on Integrating of CEEMDAN Decomposition with PSO Optimized Multilayer Perceptron Neural Network</div>
-              <div class="muted">发表：Fermentation, 2024 · 共同第一作者 · SCI · IF 3.3（2024 JIF）</div>
+              <h3>东北农业大学 · 计算机科学与技术 · 本科</h3>
+              <p>绩点排名 1/201，综合成绩排名 1/201。研究与实践涉及深度学习、网络安全、时间序列预测和智能农业。</p>
             </div>
-            <span class="status">Co-first author</span>
-          </div>
-          <p class="muted">构建 CEE-PMLP 沼气产量预测模型，结合 CEEMDAN、PSO 与 MLP，对大型厌氧消化工程产气序列进行预测，R² 达到 0.98。</p>
-          <div class="paper-links">
-            <a class="text-link" href="https://doi.org/10.3390/fermentation10120660" target="_blank" rel="noopener noreferrer">DOI</a>
-            <a class="text-link" href="/assets/site/papers/fermentation-2024-biogas-cee-pmlp.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          </div>
-        </article>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <article class="paper">
-          <div class="paper-top">
+    <section class="section-band white" id="publications">
+      <div class="container section-layout">
+        <header class="section-rail">
+          <div class="section-index">03 / Publications</div>
+          <h2 class="section-title">论文与成果</h2>
+          <p class="section-note">论文提供 DOI 与本地 PDF，便于公开阅读。</p>
+        </header>
+
+        <div class="publication-list">
+          <article class="publication">
             <div>
-              <div class="paper-title">发明专利与软件著作权</div>
-              <div class="muted">发明专利 3 项，软件著作权 7 项登记；部分成果与恶意软件分类、厌氧消化预测、智能预测系统相关。</div>
+              <h3 class="publication-title">Multi-view based network for malware classification</h3>
+              <div class="publication-meta">
+                Engineering Applications of Artificial Intelligence, 2026 · 第一作者 · SCI 一区 · IF 8.0（2024 JIF）
+              </div>
+              <p class="publication-summary">
+                融合字节偏移图像与 ASM 语义视图，在 Microsoft Big2015 数据集上取得
+                98.78% accuracy 和 98.76% F1-score。
+              </p>
             </div>
-            <span class="status">Patents & Copyrights</span>
+            <div class="publication-side">
+              <span class="publication-badge">FIRST AUTHOR</span>
+              <div class="publication-links">
+                <a href="https://doi.org/10.1016/j.engappai.2026.114580" target="_blank" rel="noopener noreferrer">DOI</a>
+                <a href="/assets/site/papers/eaai-2026-malware-multiview-network.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="publication">
+            <div>
+              <h3 class="publication-title">
+                Plant-Scale Biogas Production Based on Integrating of CEEMDAN Decomposition with
+                PSO Optimized Multilayer Perceptron Neural Network
+              </h3>
+              <div class="publication-meta">
+                Fermentation, 2024 · 共同第一作者 · SCI · IF 3.3（2024 JIF）
+              </div>
+              <p class="publication-summary">
+                构建 CEEMDAN、PSO 与 MLP 结合的沼气产量预测模型，对大型厌氧消化工程产气序列进行预测，R² 达到 0.98。
+              </p>
+            </div>
+            <div class="publication-side">
+              <span class="publication-badge">CO-FIRST AUTHOR</span>
+              <div class="publication-links">
+                <a href="https://doi.org/10.3390/fermentation10120660" target="_blank" rel="noopener noreferrer">DOI</a>
+                <a href="/assets/site/papers/fermentation-2024-biogas-cee-pmlp.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="publication">
+            <div>
+              <h3 class="publication-title">发明专利与软件著作权</h3>
+              <div class="publication-meta">发明专利 3 项 · 软件著作权 7 项登记</div>
+              <p class="publication-summary">
+                代表性成果包括“基于 CEEMDAN 分解与 PSO 优化多层感知器的生物气体预测方法及系统”等。
+              </p>
+            </div>
+            <div class="publication-side">
+              <span class="publication-badge">IP PORTFOLIO</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band" id="projects">
+      <div class="container section-layout">
+        <header class="section-rail">
+          <div class="section-index">04 / Projects</div>
+          <h2 class="section-title">项目实践</h2>
+          <p class="section-note">研究问题、模型方法与工程实现。</p>
+        </header>
+
+        <div class="project-grid">
+          <article class="project" data-number="01">
+            <div class="label">National Key R&D Program</div>
+            <h3>异构算力平台性能建模与预测</h3>
+            <p>参与大模型训练与推理性能建模平台设计，采集通信、访存和计算算子性能，适配寒武纪 MLU、摩尔线程 MTT 等平台。</p>
+          </article>
+          <article class="project" data-number="02">
+            <div class="label">Cybersecurity</div>
+            <h3>基于多视图的恶意软件分类</h3>
+            <p>提出字节偏移多视图与 ASM 语义融合策略，结合迁移学习、ViT、VGG 和 Bilinear Attention Network 完成分类。</p>
+          </article>
+          <article class="project" data-number="03">
+            <div class="label">Time-Series Forecasting</div>
+            <h3>厌氧消化过程沼气产量预测</h3>
+            <p>通过 CEEMDAN 分解、PSO 参数优化与 MLP 神经网络构建 CEE-PMLP 模型，为工程运行和参数优化提供预测支持。</p>
+          </article>
+          <article class="project" data-number="04">
+            <div class="label">Computer Vision</div>
+            <h3>基于 SfM 的油菜三维重建与表型分割</h3>
+            <p>使用点云重建和改进 ASAP-PointNet、DBSCAN 进行表型参数提取，担任省级大学生创新训练项目负责人。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band white" id="honors">
+      <div class="container section-layout">
+        <header class="section-rail">
+          <div class="section-index">05 / Honors</div>
+          <h2 class="section-title">奖项与荣誉</h2>
+          <p class="section-note">只展示结果与个人角色，不陈列证明材料。</p>
+        </header>
+
+        <div class="honor-grid">
+          <div class="honor"><strong>“华为杯”中国研究生数学建模竞赛 · 国家三等奖</strong><span class="honor-role">2025</span></div>
+          <div class="honor"><strong>美国大学生数学建模竞赛 · Honorable Mention</strong><span class="honor-role">队长</span></div>
+          <div class="honor"><strong>东北三省数学建模联赛 · 一等奖</strong><span class="honor-role">队长</span></div>
+          <div class="honor"><strong>亚太地区大学生数学建模竞赛 · 国际二等奖</strong><span class="honor-role">队长</span></div>
+          <div class="honor"><strong>全国大学生 C 语言程序设计大赛 · 国家三等奖</strong><span class="honor-role">个人赛</span></div>
+          <div class="honor"><strong>市场调查与分析大赛黑龙江赛区 · 一等奖</strong><span class="honor-role">队长</span></div>
+          <div class="honor"><strong>“挑战杯”黑龙江省大学生课外学术科技作品竞赛 · 二等奖</strong><span class="honor-role">队长</span></div>
+          <div class="honor"><strong>中国国际“互联网+”黑龙江赛区 · 三等奖</strong><span class="honor-role">队长</span></div>
+          <div class="honor"><strong>黑龙江省“知识产权杯”高校发明创新竞赛 · 二、三等奖</strong><span class="honor-role">队长</span></div>
+          <div class="honor"><strong>省级大学生创新训练项目</strong><span class="honor-role">负责人</span></div>
+          <div class="honor"><strong>国家奖学金</strong><span class="honor-role">本科阶段</span></div>
+          <div class="honor"><strong>黑龙江省普通高等学校三好学生</strong><span class="honor-role">个人荣誉</span></div>
+          <div class="honor"><strong>东北农业大学“大学生年度人物”</strong><span class="honor-role">全校 10 人</span></div>
+          <div class="honor"><strong>校科技创新奖学金 / 金龙鱼奖学金</strong><span class="honor-role">个人荣誉</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band" id="notes">
+      <div class="container section-layout">
+        <header class="section-rail">
+          <div class="section-index">06 / Notes</div>
+          <h2 class="section-title">博客与记录</h2>
+          <p class="section-note">研究、代码、竞赛与生活留下来的片段。</p>
+        </header>
+
+        <div class="note-list">
+          <a class="note-item" href="/2023/020532668.html">
+            <span class="note-type">BLOG</span>
+            <h3>储李节的博客</h3>
+            <p>旧博客内容入口，后续逐步整理为研究笔记、项目记录和生活随笔。</p>
+            <span class="note-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="note-item" href="/2023/020657072.html">
+            <span class="note-type">DIARY</span>
+            <h3>my diary</h3>
+            <p>日常与阶段性想法，记录状态，也记录变化。</p>
+            <span class="note-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="note-item" href="/2023/02061.html">
+            <span class="note-type">MODELING</span>
+            <h3>美赛题型与算法整理</h3>
+            <p>数学建模竞赛题型、算法与建模思路整理。</p>
+            <span class="note-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="note-item" href="/archives/">
+            <span class="note-type">ARCHIVE</span>
+            <h3>查看全部归档</h3>
+            <p>按时间浏览站内已有文章。</p>
+            <span class="note-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="section-index">07 / Contact</div>
+          <h2 class="contact-title">欢迎交流异构计算、AI 系统、性能建模与工程实践。</h2>
+          <p class="contact-copy">学术与项目沟通优先使用邮件；代码与实验记录持续更新在 GitHub。</p>
+        </div>
+
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:cljjjkk@mail.ustc.edu.cn">
+            <span>Email</span>
+            <strong>cljjjkk@mail.ustc.edu.cn</strong>
+          </a>
+          <a class="contact-link" href="https://github.com/AJXGY" target="_blank" rel="noopener noreferrer">
+            <span>GitHub</span>
+            <strong>@AJXGY</strong>
+          </a>
+          <div class="contact-link">
+            <span>QQ</span>
+            <strong>1746420341</strong>
           </div>
-          <p class="muted">代表性专利包括“基于 CEEMDAN 分解与 PSO 优化多层感知器的生物气体预测方法及系统”等。后续可以补充授权公告号和专利链接。</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <div class="section-head">
-        <h2 class="section-title">Projects</h2>
-        <div class="section-note">研究与工程实践</div>
-      </div>
-      <div class="grid-2">
-        <article class="card">
-          <div class="kicker">National Key R&D Program</div>
-          <h3>异构算力平台性能建模与预测</h3>
-          <p>负责大模型训练与推理性能建模平台设计，实现通信、访存和计算算子性能采集，适配寒武纪 MLU、摩尔线程 MTT 等平台，并生成可视化报告。</p>
-        </article>
-        <article class="card">
-          <div class="kicker">Cybersecurity</div>
-          <h3>基于多视图的恶意软件分类方法</h3>
-          <p>提出字节偏移多视图与 ASM 语义融合策略，使用迁移学习、ViT/VGG 和 BAN 进行分类，成果发表于 EAAI。</p>
-        </article>
-        <article class="card">
-          <div class="kicker">Time-Series Forecasting</div>
-          <h3>厌氧消化过程沼气产量预测</h3>
-          <p>通过 CEEMDAN 分解、PSO 参数优化与 MLP 神经网络构建 CEE-PMLP 模型，为工程稳定运行和参数优化提供预测支持。</p>
-        </article>
-        <article class="card">
-          <div class="kicker">Computer Vision</div>
-          <h3>基于 SfM 的油菜三维重建与表型分割</h3>
-          <p>搭建植物工厂采集图像，使用点云重建和改进 ASAP-PointNet/DBSCAN 进行表型参数提取，省级大创负责人。</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="honors">
-      <div class="section-head">
-        <h2 class="section-title">Awards & Honors</h2>
-        <div class="section-note">代表性奖项与个人荣誉</div>
-      </div>
-      <div class="honor-list">
-        <div class="honor-item">
-          <span class="honor-name">“华为杯”第二十二届中国研究生数学建模竞赛 · 国家三等奖</span>
-          <span class="role-badge">（2025）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">美国大学生数学建模竞赛 · Honorable Mention</span>
-          <span class="role-badge">（队长）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">东北三省数学建模联赛 · 一等奖</span>
-          <span class="role-badge">（队长）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">亚太地区大学生数学建模竞赛 · 国际二等奖</span>
-          <span class="role-badge">（队长）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">全国大学生 C 语言程序设计大赛 · 国家三等奖</span>
-          <span class="role-badge">（个人赛）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">市场调查与分析大赛黑龙江赛区 · 一等奖</span>
-          <span class="role-badge">（队长）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">“挑战杯”黑龙江省大学生课外学术科技作品竞赛 · 二等奖</span>
-          <span class="role-badge">（队长）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">中国国际“互联网+”大学生创新创业大赛黑龙江赛区 · 三等奖</span>
-          <span class="role-badge">（队长）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">黑龙江省“知识产权杯”高校发明创新竞赛 · 二、三等奖</span>
-          <span class="role-badge">（队长）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">省级大学生创新训练项目</span>
-          <span class="role-badge">（负责人）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">国家奖学金</span>
-          <span class="role-badge">（本科阶段）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">黑龙江省普通高等学校三好学生</span>
-          <span class="role-badge">（个人荣誉）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">东北农业大学“大学生年度人物”</span>
-          <span class="role-badge">（全校 10 人）</span>
-        </div>
-        <div class="honor-item">
-          <span class="honor-name">校科技创新奖学金 / 金龙鱼奖学金</span>
-          <span class="role-badge">（个人荣誉）</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="blog">
-      <div class="section-head">
-        <h2 class="section-title">Blog & Notes</h2>
-        <a class="section-note" href="/archives/">查看归档</a>
-      </div>
-      <div class="grid-3">
-        <a class="card" href="/2023/020532668.html">
-          <div class="kicker">Blog</div>
-          <h3>储李节的博客</h3>
-          <p>旧博客内容会继续保留，后续可以逐步迁移成研究笔记、项目记录和生活随笔。</p>
-        </a>
-        <a class="card" href="/2023/020657072.html">
-          <div class="kicker">Diary</div>
-          <h3>my diary</h3>
-          <p>日常与阶段性想法，记录状态，也记录变化。</p>
-        </a>
-        <a class="card" href="/2023/02061.html">
-          <div class="kicker">Modeling</div>
-          <h3>美赛题型与算法整理</h3>
-          <p>数学建模竞赛题型、算法与建模思路整理。</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="section-head">
-        <h2 class="section-title">Contact</h2>
-        <div class="section-note">欢迎交流科研、项目和博客内容</div>
-      </div>
-      <div class="grid-3">
-        <a class="card" href="mailto:cljjjkk@mail.ustc.edu.cn">
-          <div class="kicker">Email</div>
-          <h3>cljjjkk@mail.ustc.edu.cn</h3>
-          <p>公开联系邮箱，适合学术、项目与合作交流。</p>
-        </a>
-        <a class="card" href="https://github.com/AJXGY" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">GitHub</div>
-          <h3>github.com/AJXGY</h3>
-          <p>代码、实验、项目和日常工程记录会逐步整理到这里。</p>
-        </a>
-        <div class="card">
-          <div class="kicker">QQ</div>
-          <h3>1746420341</h3>
-          <p>用于较轻量的即时联系。后续如不想公开，可以改成“Email preferred”。</p>
         </div>
       </div>
     </section>
@@ -945,18 +1352,23 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© <span id="year"></span> 储李节 · AJXGY Blog</div>
+      <div>© <span id="year"></span> 储李节 / Chu Lijie</div>
       <div class="footer-links">
         <a href="/archives/">Archives</a>
         <a href="/categories/">Categories</a>
         <a href="https://github.com/AJXGY" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="mailto:cljjjkk@mail.ustc.edu.cn">Email</a>
       </div>
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll(".mobile-menu-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        link.closest("details").removeAttribute("open");
+      });
+    });
   </script>
 </body>
 </html>
